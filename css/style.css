@@ -108,11 +108,11 @@ img {
 /* End Banner Wrapper */
 /* Start Parallax Section */
 .parallax-1 {
-    background: url("../img/parallax-2.jpg") repeat fixed 100%;
+    background: url("../img/parallax/brick-2.jpg") repeat fixed 100%;
     text-align: center;
 }
 .parallax-2 {
-    background: url("../img/black-pattern.jpg") repeat fixed 100%;
+    background: url("../img/parallax/brick-2.jpg") repeat fixed 100%;
     text-align: center;
 }
 .parallax-inner {
@@ -182,3 +182,8 @@ footer p {
         font-size: 80%;
     }
 }
+/* Start Custom */
+#services {
+    margin-top: 30px;
+}
+/* End Custom */ 
