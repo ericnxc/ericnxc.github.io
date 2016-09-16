@@ -143,6 +143,12 @@ footer p {
     float: left;
     margin: 8% 0 3% 4%;
 }
+#perso {
+    margin-top: 80px;
+}
+#perso p {
+    text-align: center;
+}
 /* End Footer Section */
 /* MEDIA QUERIES */
 @media screen and (max-width: 768px) {
