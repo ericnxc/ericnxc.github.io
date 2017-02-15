@@ -1,137 +1,129 @@
-function responsiveMobileMenu() {
-	$('.nav').each(function() {
+ jQuery(document).ready(function($){
+$(".all-portfolios").isotope({
+itemSelector : '.single-portfolio',
 
-
-
-		// $(this).children('ul').addClass('nav-menu'); // mark main menu list
-
-
-		var $style = $(this).attr('nav-menu-style'); // get menu style
-		if (typeof $style == 'undefined' || $style == false) {
-			$(this).addClass('yoga'); // set yoga style if style is not defined
-		} else {
-			$(this).addClass($style);
-		}
-
-
-		/* 	width of menu list (non-toggled) */
-
-		var $width = 0;
-		$(this).find('ul li').each(function() {
-			$width += $(this).outerWidth();
-		});
-
-		// if modern browser
-
-		if ($.support.leadingWhitespace) {
-			// $(this).css('max-width', $width * 1.2 + 'px');
-		}
-		// 
-		else {
-			$(this).css('width', $width * 1.2 + 'px');
-		}
-
-	});
-}
-
-function getMobileMenu() {
-
-	/* 	build toggled dropdown menu list */
-
-	$('.nav').each(function() {
-		var menutitle = $(this).attr("nav-menu-title");
-		if (menutitle == "") {
-			menutitle = "";
-		} else if (menutitle == undefined) {
-			menutitle = "";
-		}
-		var $menulist = $(this).children('.nav-menu').html();
-		var $menucontrols = "<div class='nav-toggled-controls'><div class='nav-toggled-title'>" + menutitle + "</div><div class='nav-button'><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></div></div>";
-		$(this).prepend("<div class='nav-toggled nav-closed'>" + $menucontrols + "<ul>" + $menulist + "</ul></div>");
-
-	});
-}
-
-function adaptMenu() {
-
-	/* 	toggle menu on resize */
-
-	$('.nav').each(function() {
-		// var $width = $(this).css('max-width');
-		// $width = $width.replace('px', ''); 
-		var $width = 768;
-		if ($(this).parent().width() < $width * 1.05) {
-			$(this).children('.nav-menu').hide(0);
-			$(this).children('.nav-toggled').show(0);
-		} else {
-			$(this).children('.nav-menu').show(0);
-			$(this).children('.nav-toggled').hide(0);
-		}
-	});
-
-}
-
-$(function() {
-
-	responsiveMobileMenu();
-	getMobileMenu();
-	adaptMenu();
-
-	/* slide down mobile menu on click */
-
-	$('.nav-toggled, .nav-toggled .nav-button').click(function() {
-		if ($(this).is(".nav-closed")) {
-			$(this).find('> ul').stop().show(300);
-			$(this).removeClass("nav-closed");
-		} else {
-			$(this).find(' > ul').stop().hide(300);
-			$(this).addClass("nav-closed");
-		}
-
-	});
-
+layoutMode: 'fitRows',
 });
-/* 	hide mobile menu on resize */
-$(window).resize(function() {
-	adaptMenu();
+$('ul.filter li').click(function(){
+$("ul.filter li").removeClass("active");
+$(this).addClass("active");
+ 
+var selector = $(this).attr('data-filter');
+$(".all-portfolios").isotope({
+	
+filter: selector,
+animationOptions: {
+duration: 750,
+easing: 'linear',
+queue: false,
+}
+});
+return false;
+});
 });
 
-$(document).ready(function() {
-	//test for touch events support and if not supported, attach .no-touch class to the HTML tag.
-	if (!("ontouchstart" in document.documentElement)) {
-		document.documentElement.className += " no-touch";
-	} else {
-		document.documentElement.className += " touch";
-	}
 
 
-	var $submenus = $('.nav.yoga .nav-menu li > ul');
-	$submenus.hide();
-	if ($('html').hasClass('no-touch')) {
-		$submenus.parent().hover(function() {
-			$(this).find('> ul').slideToggle('fast');
-		});
-	} else {
-		$submenus.parent().click(function(e) {
-			
-			$(this).find('> ul').slideToggle('fast');
-			e.preventDefault();
-			e.stopPropagation();
-		});
-	}
 
-	$submenus.parent().addClass('has-children');
+jQuery(document).ready(function () {
 
+	
+/*----------------------------------------------------*/
+/*  Animated Progress Bars
+/*----------------------------------------------------*/
 
-	var $submenusSm = $('.nav.yoga .nav-toggled li > ul');
-	$submenusSm.hide();
-	$submenusSm.parent().prepend('<div class="clicker"></div>');
-	$submenusSm.parent().children('a').addClass('toggle-sm');
-	var clicker = $('.clicker');
-	clicker.on('click', function(e){
-		e.stopPropagation();
-		$(this).parent().find('> ul').slideToggle();
-		$(this).parent().children('a').toggleClass('open');
-	});
+    jQuery('.skills li').each(function () {
+        jQuery(this).appear(function() {
+          jQuery(this).animate({opacity:1,left:"0px"},800);
+          var b = jQuery(this).find(".progress-bar").attr("data-width");
+          jQuery(this).find(".progress-bar").animate({
+            width: b + "%"
+          }, 1300, "linear");
+        }); 
+    });   
+
+/*----------------------------------------------------*/
+/* Crousel Team 
+/*----------------------------------------------------*/
+	$('.all_team').owlCarousel({
+		items:4,
+		loop:true,
+		margin:10,
+		nav:true,
+		autoplay:true,
+		smartSpeed:3000,
+		navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
+		responsive:{
+			0:{
+				items:1
+			},
+			600:{
+				items:1
+			},
+			1000:{
+				items:4
+			}
+		}
+	})
+	
+/*----------------------------------------------------*/
+/* Testimonial crousel 
+/*----------------------------------------------------*/
+	$('.all_tstm').owlCarousel({
+		items:1,
+		loop:true,
+		margin:10,
+		nav:true,
+		autoplay:true,
+		smartSpeed:3000,	
+		navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
+		responsive:{
+			0:{
+				items:1
+			},
+			600:{
+				items:1
+			},
+			1000:{
+				items:1
+			}
+		}
+	})
+	
+/*----------------------------------------------------*/
+/* Happy Client crousel 
+/*----------------------------------------------------*/
+	$('.al_clt').owlCarousel({
+		items:6,
+		loop:true,
+		margin:30,
+		nav:true,
+		autoplay:true,
+		smartSpeed:3000,	
+		navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
+		responsive:{
+			0:{
+				items:1
+			},
+			600:{
+				items:6
+			},
+			1000:{
+				items:6
+			}
+		}
+	})
+
+	
+	
+/*preloder*/
+$(window).load(function() { // makes sure the whole site is loaded
+	$('#status').fadeOut(); // will first fade out the loading animation
+	$('#loader-wrapper').delay(200).fadeOut('slow'); // will fade out the white DIV that covers the website.
+	$('body').delay(200).css({'overflow-x':'hidden'});
+})	
+	
+	
 	
 });
+
