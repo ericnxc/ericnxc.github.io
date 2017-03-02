@@ -283,6 +283,13 @@ header .navbar-default .navbar-collapse .navbar-right {
     letter-spacing: 1px;
 }
 
+.title_sec p {
+    color: #606060;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+}
+
 .abt {
     margin: 0 auto;
     text-align: center;
@@ -522,6 +529,7 @@ header .navbar-default .navbar-collapse .navbar-right {
     position: absolute;
     top: 0;
     background: #fff;
+    z-index: 999;
 }
 
 .service_hoverly i {
@@ -604,7 +612,7 @@ header .navbar-default .navbar-collapse .navbar-right {
 }
 
 #tstm_sec {
-    background-image: url("../img/testimonial_bg.png");
+    background-image: url("../img/grey.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
