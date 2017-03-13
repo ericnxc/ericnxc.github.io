@@ -116,7 +116,7 @@ header .navbar {
 
 header .top-nav-collapse {
     padding: 0;
-    background: none 0 0 repeat scroll #353638;
+    background: none 0 0 repeat scroll #484848;
 }
 
 header .navbar-logo {
@@ -612,10 +612,10 @@ header .navbar-default .navbar-collapse .navbar-right {
 }
 
 #tstm_sec {
-    background-image: url("../img/grey.png");
+    background-image: url("../img/testimonial_bg.png");
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    /*background-size: 100% 100%;*/
     padding: 40px 0;
 }
 
@@ -855,6 +855,10 @@ header .navbar-default .navbar-collapse .navbar-right {
 
 #cnt_form .form-control:focus {
     border: #0080FF solid 1px;
+}
+
+.cnt_info {
+    padding: auto;
 }
 
 .cnt_info ul {

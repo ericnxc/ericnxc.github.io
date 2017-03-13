@@ -132,6 +132,12 @@
         background: none 0 0 repeat scroll #353638;
         transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
     }
+    .sngl_tstm h3 {
+        font-size: 15px;
+    }
+    .sngl_tstm p {
+        font-size: 14px;
+    }
 }
 
 @media only screen and (min-width:320px) and (max-width:479px)
