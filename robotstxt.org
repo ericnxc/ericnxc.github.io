@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /wp-content/plugings/
+Sitemap: http://www.ericnxc-coaching.fr/sitemap.xml
